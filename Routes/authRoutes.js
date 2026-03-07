@@ -1,5 +1,5 @@
 import express from "express";
-import { getPendingTeachers, loginUser, registerTeacher, updateTeacherStatus } from "../Controllers/authController.js";
+import { deleteTeacher, getAdminStats, getAllTeachers, getPendingTeachers, loginUser, registerTeacher, updateTeacherStatus } from "../Controllers/authController.js";
 import { isAdmin, verifyToken } from "../Middilewares/authMiddleware.js";
 
 const router = express.Router();

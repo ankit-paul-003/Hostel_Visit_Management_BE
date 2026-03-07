@@ -51,12 +51,6 @@ export const loginUser = async(req, res) => {
             return res.status(400).json({ message: "Invalid Credentials"});
         }
 
-        if(user.role === "teacher" && user.status !== "approved"){
-            return res.status(403).json({
-                message: "Your registration is pending admin approval."
-            });
-        }
-
         const token = jwt.sign(
             { id: user._id, role: user.role },
             process.env.JWT_SECRET,
@@ -66,7 +60,8 @@ export const loginUser = async(req, res) => {
         res.json({
             message: "Login Sucessfull.",
             token,
-            role: user.role
+            role: user.role,
+            status: user.status 
         });
     } catch (error) {
         res.status(500).json({ message: error.message })
