@@ -32,7 +32,13 @@ const userSchema = new mongoose.Schema({
       isEmailVerified: {
         type: Boolean,
         default: false
-      }
+      },
+
+      // Used to invalidate previously issued JWTs (e.g., on logout)
+      tokenVersion: {
+        type: Number,
+        default: 0,
+      },
     },
     { timestamps: true }
 );
