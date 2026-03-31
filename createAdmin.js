@@ -13,7 +13,7 @@ const createAdmin = async () => {
 
     const admin = new User({
         name: "Hostel Warden",
-        email: "admin@gmail.com",
+        email: process.env.ADMIN_MAIL,
         password: hashedPassword,
         role: "admin",
         status: "approved",

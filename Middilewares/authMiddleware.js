@@ -10,6 +10,8 @@ export const verifyToken = (req, res, next) => {
             return res.status(401).json({ 
                 success: false,
                 message: "No token provided or missing." });
+
+                
         }
 
         const token = authHeader.split(" ")[1];
