@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: hostel-visit-management-be
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    domains:
+      - hostel-visit-management-be.onrender.com
+    envVars:
+      - key: MONGO_URI
+        scope: build,runtime
+        isFile: false
+      - key: PORT
+        value: 3000
+      - key: JWT_SECRET
+        scope: build,runtime
+        isFile: false
+      - key: CLIENT_URL
+        value: https://hostel-visit-fe-2026.web.app
